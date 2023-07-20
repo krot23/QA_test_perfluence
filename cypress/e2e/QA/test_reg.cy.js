@@ -1,0 +1,31 @@
+describe('Registration', () => {
+    it('Test_reg', () => {
+        cy.visit('https://dash14.prfl.tech/site/login')
+        cy.get('div[class="enter-links"]').click()
+        cy.get('input[type="tel"]').type('4951520398')
+        cy.get('div[class="recaptcha-checkbox-border"]').click()
+        cy.get('button[type="submit"]').click()
+        cy.xpath('//*[@id="signupemailform-name"]').type('Leks')
+        cy.xpath('//*[@id="signupemailform-surname"]').type('Testoff')
+        cy.xpath('//*[@id="signupemailform-email"]').type('test_perfluence@fexpost.com')
+        cy.xpath('//*[@id="signupemailform-gender"]').select('Мужской')
+        cy.xpath('//*[@id="login-form"]/div[1]/div[4]/div[2]/div/span/span[1]/span').select('Москва')
+        cy.xpath('//*[@id="signupemailform-password"]').type('Perfluence23')
+        cy.xpath('//*[@id="login-form"]/div[1]/div[6]/div[1]/label').click()
+        cy.xpath('//*[@id="login-form"]/div[2]/button').click()
+        cy.wait(3000) //Ждем отображение следующего интерфейса
+        cy.xpath('//*[@id="login-html"]/body/div[1]/div[2]/div/div[3]/button').click()
+        cy.wait(3000) //Ждем отображение следующего интерфейса
+        cy.xpath('//*[@id="signup-first_slide"]/div/div/div[1]/div[3]/a/span[2]').click()
+        cy.xpath('//*[@id="signupform-username"]').type('https://vk.com/id489755393')
+        cy.xpath('//*[@id="profile-alternative"]/div[2]/div/button').click()
+        cy.wait(3000) //Ждем отображение следующего интерфейса
+        cy.xpath('//*[@id="profile-fill"]/div[1]/div[2]/div[1]/div/div[1]').click()
+        cy.xpath('//*[@id="multi-select-0"]/button').click()
+        cy.xpath('//*[@id="dropdown_multi-select-0"]/div[3]').contains('Путешествия').click()
+        cy.xpath('//*[@id="dropdown_multi-select-0"]/div[3]').contains('Еда и кулинария').click()
+        cy.xpath('//*[@id="multi-select-1"]/button').click()
+        cy.xpath('//*[@id="dropdown_multi-select-1"]').contains('Русский').click()
+        cy.xpath('//*[@id="profile-fill"]/div[2]/button').click()
+    })
+})
